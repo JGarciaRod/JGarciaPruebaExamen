@@ -1,0 +1,46 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Agregar nuevo empleado</h2>
+
+@using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        
+        <div class="col-md-3">
+            @Html.Label("Nombre: ")
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.Label("Apellido: ")
+            @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.Label("Edad: ")
+            @Html.TextBoxFor(model => model.Edad, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.Label("Fecha de ingreso: ")
+            @Html.TextBoxFor(model => model.FechaIngreso, new { @class = "form-control", @type="Date"})
+        </div>
+
+    </div>
+    <hr />
+    <div class="row">
+
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-success btn-sm seach input-group" value="Guardar" />
+        </div>
+
+        <div class="col-md-6">
+            <a class="btn btn-success" href=@Url.Action("GetAll","Usuario")>Regresar</a>
+        </div>
+
+    </div>
+}
